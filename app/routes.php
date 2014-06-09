@@ -27,3 +27,4 @@
 
 Route::resource('usuarios', 'UsuariosController');
 
+Route::resource('searchs', 'SearchsController');
