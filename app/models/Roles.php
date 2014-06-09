@@ -10,4 +10,6 @@ class Roles extends Eloquent {
 		return $this->belongsTo('Usuarios', 'id_rol');
 	}
 
-}
+};
+
+?>

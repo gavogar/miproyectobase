@@ -11,7 +11,19 @@
 |
 */
 
-Route::get('/', function()
+/* Route::get('/', array('uses' => 'UsuariosController@mostrarUsuarios')); */
+
+// Route::get('/', function (){
+
+	// return Route::controller('micontrolador','UsuariosControllers');
+
+// });
+
+/*Route::get('usuarios/traer', function()
 {
-	return View::make('hello');
-});
+  return View::make('usuarios.traer');	
+
+});*/
+
+Route::resource('usuarios', 'UsuariosController');
+
