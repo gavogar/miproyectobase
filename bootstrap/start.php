@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('gavogar-VirtualBox'),
+	'local' => array('gavogar-Inspiron-N4030'),
 
 ));
 
