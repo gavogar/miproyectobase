@@ -15,15 +15,15 @@ class BaseController extends Controller {
 		}
 
 
-			$this->beforeFilter(function()
-{
-    Event::fire('clockwork.controller.start');
-});
+		$this->beforeFilter(function()
+		{
+		    Event::fire('clockwork.controller.start');
+		});
 
-$this->afterFilter(function()
-{
-    Event::fire('clockwork.controller.end');
-});
+		$this->afterFilter(function()
+		{
+		    Event::fire('clockwork.controller.end');
+		});
 
 
 	}
