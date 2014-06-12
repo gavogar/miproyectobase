@@ -7,8 +7,9 @@ class Roles extends Eloquent {
 
 	public function usuarios()
 	{
-		return $this->belongsTo('Usuarios', 'id_rol');
+		return $this->hasMany('Usuarios');
 	}
+	
 
 };
 

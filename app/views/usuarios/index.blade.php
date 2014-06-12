@@ -30,6 +30,7 @@
 			<td>Id</td>
 			<td>Nombre</td>
 			<td>Apellido</td>
+			<td>Rol</td>
 			<td>Actions</td>
 		</tr>
 	</thead>
@@ -39,6 +40,7 @@
 			<td>{{ $usuario->id }}</td>
 			<td>{{ $usuario->nombre }}</td>
 			<td>{{ $usuario->apellido }}</td>
+			<td>{{ $usuario->rol }}</td>
 	
 		<td>
 

@@ -9,8 +9,9 @@ class UsuariosController extends \BaseController {
 	 */
 	public function index()
 	{
-		$usuario = Usuarios::all();
-	
+		
+		$usuario = Usuarios::join('roles','usuarios.id_rol', '=', 'roles.id')->select('usuarios.*', 'roles.rol')->orderBy('usuarios.id')->get();	
+
 		return View::make('usuarios.index')->with('usuario', $usuario);
 	}
 
