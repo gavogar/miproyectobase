@@ -28,3 +28,9 @@
 Route::resource('usuarios', 'UsuariosController');
 
 Route::resource('searchs', 'SearchsController');
+
+Route::get('/', function(){
+
+	return View::make('login');
+
+});

@@ -55,6 +55,8 @@ return array(
     'Clockwork\\Support\\Slim\\ClockworkMiddleware' => $vendorDir . '/itsgoingd/clockwork/Clockwork/Support/Slim/ClockworkMiddleware.php',
     'Clockwork\\Support\\Swift\\SwiftPluginClockworkTimeline' => $vendorDir . '/itsgoingd/clockwork/Clockwork/Support/Swift/SwiftPluginClockworkTimeline.php',
     'CreateForeignKeys' => $baseDir . '/app/database/migrations/2014_06_08_182305_create_foreign_keys.php',
+    'CreateRolesTable' => $baseDir . '/app/database/migrations/2014_06_08_182255_create_roles_table.php',
+    'CreateUsuariosTable' => $baseDir . '/app/database/migrations/2014_06_08_182255_create_usuarios_table.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',
     'Crypt_Blowfish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Blowfish.php',
