@@ -12,7 +12,12 @@ class CreateUsuariosTable extends Migration {
 			$table->timestamps();
 			$table->string('nombre', 50);
 			$table->string('apellido', 50);
+			$table->string('username',50);
+			$table->string('email',320);
+			$table->string('password',64);
+			$table->string('remember_token',100);
 			$table->integer('id_rol')->unsigned();
+			
 		});
 	}
 
