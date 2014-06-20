@@ -5,9 +5,9 @@ class Roles extends Eloquent {
 	protected $table = 'roles';
 	public $timestamps = false;
 
-	public function usuarios()
+	public function users()
 	{
-		return $this->hasMany('Usuarios');
+		return $this->hasMany('Users');
 	}
 	
 

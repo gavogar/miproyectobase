@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	/*if (Auth::guest())
 	{
 		if (Request::ajax())
 		{
@@ -45,7 +45,12 @@ Route::filter('auth', function()
 		{
 			return Redirect::guest('login');
 		}
+	}*/
+
+	if (Auth::guest()){
+		return Redirect::guest('/')->with('msg', 'Debes identificarte primero.');
 	}
+
 });
 
 

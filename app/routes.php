@@ -11,26 +11,27 @@
 |
 */
 
-/* Route::get('/', array('uses' => 'UsuariosController@mostrarUsuarios')); */
 
-// Route::get('/', function (){
+//Procesa el formulario e identifica al usuario
+Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest']);
+//Desconecta al usuario
+Route::get('/logout', ['uses' => 'AuthController@doLogout', 'before' => 'guest']);
 
-	// return Route::controller('micontrolador','UsuariosControllers');
+//Pagina principal donde está el formulario de identificación
+Route::get('/', ['before' => 'guest', function(){
+    return View::make('index');
+}]);
 
-// });
+//Página oculta donde sólo puede ingresar un usuario identificado, este caso asignado a grupo de pages y controllers
+Route::group(
+	array('before' => 'auth'), function(){
+		Route::resource('users', 'UsersController');
+		Route::resource('searchs', 'SearchsController');
+	}
+);
 
-/*Route::get('usuarios/traer', function()
-{
-  return View::make('usuarios.traer');	
 
-});*/
 
-Route::resource('usuarios', 'UsuariosController');
 
-Route::resource('searchs', 'SearchsController');
 
-Route::get('/', function(){
 
-	return View::make('login');
-
-});

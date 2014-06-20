@@ -37,11 +37,11 @@
 
 <nav class="navbar navbar-inverse">
     <div class="navbar-header">
-        <a class="navbar-brand" href="{{ URL::to('usuarios') }}">Usuario Alert</a>
+        <a class="navbar-brand" href="{{ URL::to('usuarios') }}">User Alert</a>
     </div>
     <ul class="nav navbar-nav">
-        <li><a href="{{ URL::to('usuarios') }}">View All Usuarios</a></li>
-        <li><a href="{{ URL::to('usuarios/create') }}">Create a Usuario</a>
+        <li><a href="{{ URL::to('usuarios') }}">View All Users</a></li>
+        <li><a href="{{ URL::to('usuarios/create') }}">Create a User</a>
     </ul>
 </nav>
 
@@ -65,13 +65,13 @@
                         </tr>
                 </thead>
                                             <tbody>
-                                                @foreach($usuario as $usuario)
+                                                @foreach($user as $user)
                                                             <tr>    
-                                                                <td>{{ $usuario->id }}</td>
-                                                                <td>{{ $usuario->nombre }}</td>
-                                                                <td>{{ $usuario->apellido }}</td>
+                                                                <td>{{ $user->id }}</td>
+                                                                <td>{{ $user->firstname }}</td>
+                                                                <td>{{ $user->lastname }}</td>
                                                                 <td>    
-                                                <a class="btn btn-small btn-success" href="{{ URL::to('usuarios/' . $usuario->id) }}">Show this User</a>
+                                                <a class="btn btn-small btn-success" href="{{ URL::to('users/' . $user->id) }}">Show this User</a>
                                                </td>
                                                             </tr>
                                                

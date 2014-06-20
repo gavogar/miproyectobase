@@ -7,7 +7,7 @@ class CreateForeignKeys extends Migration {
 
 	public function up()
 	{
-		Schema::table('usuarios', function(Blueprint $table) {
+		Schema::table('users', function(Blueprint $table) {
 			$table->foreign('id_rol')->references('id')->on('roles')
 						->onDelete('restrict')
 						->onUpdate('restrict');
@@ -16,8 +16,8 @@ class CreateForeignKeys extends Migration {
 
 	public function down()
 	{
-		Schema::table('usuarios', function(Blueprint $table) {
-			$table->dropForeign('usuarios_id_rol_foreign');
+		Schema::table('users', function(Blueprint $table) {
+			$table->dropForeign('users_id_rol_foreign');
 		});
 	}
 }

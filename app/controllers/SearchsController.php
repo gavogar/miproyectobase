@@ -9,9 +9,9 @@ class SearchsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$usuario = Usuarios::all();
+		$user = Users::all();
 
-		return View::make('searchs.index')->with('usuario', $usuario);;
+		return View::make('searchs.index')->with('user', $user);;
 	}
 
 	/**

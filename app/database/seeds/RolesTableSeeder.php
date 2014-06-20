@@ -8,7 +8,8 @@ class RolesTableSeeder extends Seeder {
 
 		// RolesTablesSeeder
 		Roles::create(array(
-				'rol' => 'Administrador'
+				'rol' => 'Administrador',
+				'rol' => 'Usuario_Nivel_1'
 			));
 	}
 }
