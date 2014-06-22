@@ -13,6 +13,7 @@ class UsersController extends \BaseController {
 		$user = Users::join('roles','users.id_rol', '=', 'roles.id')->select('users.*', 'roles.rol')->orderBy('users.id')->get();	
 
 		return View::make('users.index')->with('users', $user);
+		
 	}
 
 	/**
@@ -38,8 +39,10 @@ class UsersController extends \BaseController {
 		$rules = array(
 			'firstname' => 'required',
 			'lastname' => 'required',
-
-			
+			'username' => 'required',
+			'email' => 'required|email',
+			'password' => 'required',
+			'id_rol' => 'required|max:1'
 		);
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -53,6 +56,10 @@ class UsersController extends \BaseController {
 			$user = new Users;
 			$user->firstname = Input::get('firstname');
 			$user->lastname = Input::get('lastname');
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$user->id_rol = Input::get('id_rol');
+			$user->password = Hash::make(Input::get('password'));
 			$user->save();
 
 			// redirect
@@ -70,10 +77,10 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		// get the nerd
+		// get the user
 		$user = Users::find($id);
 
-		// show the view and pass the nerd to it
+		// show the view and pass the user to it
 		return View::make('users.show')->with('users', $user);
 	}
 
@@ -86,10 +93,10 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		// get the nerd
+		// get the user
 		$user = Users::find($id);
 
-		// show the edit form and pass the nerd
+		// show the edit form and pass the user
 		return View::make('users.edit')->with('users', $user);
 	}
 
@@ -123,7 +130,7 @@ class UsersController extends \BaseController {
 			$user->save();
 
 			// redirect
-			Session::flash('message', 'Successfully updated nerd!');
+			Session::flash('message', 'Successfully updated user!');
 			return Redirect::to('users');
 		}
 	}
@@ -142,8 +149,15 @@ class UsersController extends \BaseController {
 		$user->delete();
 
 		// redirect
-		Session::flash('message', 'Successfully deleted the nerd!');
+		Session::flash('message', 'Successfully deleted the user!');
 		return Redirect::to('users');
+	}
+
+	public function search(){
+
+		$user = $user = Users::join('roles','users.id_rol', '=', 'roles.id')->select('users.*', 'roles.rol')->orderBy('users.id')->get();
+
+		return View::make('users.search')->with('user', $user);		
 	}
 
 }

@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    
+<head>    
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    
 </head>
 
 <body>
 
     <div id="login">
 
-     <h1>Catering Web</h1>
+     <h1>Welcome</h1>
 
         @if(Session::get('msg'))
             <p>{{ Session::get('msg') }}</p>

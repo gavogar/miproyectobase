@@ -22,7 +22,6 @@ class AuthController extends BaseController {
  
         // La autenticación ha fallado re-direccionamos
         // a la página anterior con los datos enviados
-        // y con un mensaje de error
 
         return Redirect::back()->with('msg', 'Datos incorrectos, vuelve a intentarlo.');
 		
@@ -30,10 +29,11 @@ class AuthController extends BaseController {
 
 	public function doLogout()
     {
-        //Desconectamos al usuario
-        Auth::logout();
- 
-        //Redireccionamos al inicio de la app con un mensaje
-        return Redirect::to('/')->with('msg', 'Gracias por visitarnos!.');
+        if(Auth::check()){
+
+            Session::flush();
+
+            return Redirect::to('/' )->with('msg', 'Gracias por visitarnos!.');
+        }       
     }
 }

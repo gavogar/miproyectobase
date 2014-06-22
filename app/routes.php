@@ -11,11 +11,12 @@
 |
 */
 
-
 //Procesa el formulario e identifica al usuario
 Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest']);
 //Desconecta al usuario
-Route::get('/logout', ['uses' => 'AuthController@doLogout', 'before' => 'guest']);
+//Named routes make referring to routes when generating redirects or URLs more convenient. You may specify a name for a route like "as".
+
+Route::get('/logout', array('as'=>'logout', 'uses' => 'AuthController@doLogout'));
 
 //Pagina principal donde está el formulario de identificación
 Route::get('/', ['before' => 'guest', function(){
@@ -25,13 +26,9 @@ Route::get('/', ['before' => 'guest', function(){
 //Página oculta donde sólo puede ingresar un usuario identificado, este caso asignado a grupo de pages y controllers
 Route::group(
 	array('before' => 'auth'), function(){
+		//se agrega método search a la clase UsersController y para que compile correctamente se tiene que routear primero.
+		Route::get('users/search', 'UsersController@search'); 
 		Route::resource('users', 'UsersController');
-		Route::resource('searchs', 'SearchsController');
+		
 	}
 );
-
-
-
-
-
-

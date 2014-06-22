@@ -1,0 +1,1 @@
+{{ HTML::script('js/jquery.v2.1.1.min.js') }}

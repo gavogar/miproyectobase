@@ -1,45 +1,45 @@
-<!-- app/views/nerds/create.blade.php -->
+@extends('layouts.master')
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Look! I'm CRUDding</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container">
+@section('content')
+	<h1>Create a Nerd</h1>
 
-<nav class="navbar navbar-inverse">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="{{ URL::to('users') }}">Nerd Alert</a>
-	</div>
-	<ul class="nav navbar-nav">
-		<li><a href="{{ URL::to('users') }}">View All Nerds</a></li>
-		<li><a href="{{ URL::to('users/create') }}">Create a Nerd</a>
-	</ul>
-</nav>
+	<!-- if there are creation errors, they will show here -->
+	{{ HTML::ul($errors->all()) }}
 
-<h1>Create a Nerd</h1>
+	{{ Form::open(array('url' => 'users')) }}
 
-<!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
+		<div class="form-group">
+			{{ Form::label('firstname', 'FirstName') }}
+			{{ Form::text('firstname', Input::old('firstname'), array('class' => 'form-control')) }}
+		</div>
 
-{{ Form::open(array('url' => 'users')) }}
+		<div class="form-group">
+			{{ Form::label('lastname', 'LastName') }}
+			{{ Form::text('lastname', Input::old('lastname'), array('class' => 'form-control')) }}
+		</div>
 
-	<div class="form-group">
-		{{ Form::label('firstname', 'FirstName') }}
-		{{ Form::text('firstname', Input::old('firstname'), array('class' => 'form-control')) }}
-	</div>
+		<div class="form-group">
+			{{ Form::label('username', 'UserName') }}
+			{{ Form::text('username', Input::old('username'), array('class' => 'form-control')) }}
+		</div>
 
-	<div class="form-group">
-		{{ Form::label('lastname', 'LastName') }}
-		{{ Form::text('lastname', Input::old('lastname'), array('class' => 'form-control')) }}
-	</div>
+		<div class="form-group">
+			{{ Form::label('email', 'Email') }}
+			{{ Form::text('email', Input::old('email'), array('class' => 'form-control')) }}
+		</div>
 
-	{{ Form::submit('Create the User!', array('class' => 'btn btn-primary')) }}
+		<div class="form-group">
+			{{ Form::label('password', 'Password') }}
+			{{ Form::password('password', array('placeholder'=>'','class' => 'form-control')) }}
+		</div>
 
-{{ Form::close() }}
+		<div class="form-group">
+			{{ Form::label('id_rol', 'Id Rol') }}
+			{{ Form::text('id_rol', Input::old('id_rol'), array('class' => 'form-control')) }}
+		</div>
 
-</div>
-</body>
-</html>
+
+		{{ Form::submit('Create the User!', array('class' => 'btn btn-primary')) }}
+
+	{{ Form::close() }}
+@stop
