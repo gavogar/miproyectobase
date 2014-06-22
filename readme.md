@@ -23,3 +23,10 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+Config database / hostname
+
+Migrate & seed
+
+Tener en cuenta que para crear usuarios solamente con id_rol = 1 de lo contrario falla la creación.
