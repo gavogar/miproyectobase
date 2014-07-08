@@ -12,11 +12,11 @@
 */
 
 //Procesa el formulario e identifica al usuario
-Route::post('/login', ['uses' => 'AuthController@doLogin', 'before' => 'guest']);
+Route::post('/login', ['uses' => 'AuthController@Login', 'before' => 'guest']);
 //Desconecta al usuario
 //Named routes make referring to routes when generating redirects or URLs more convenient. You may specify a name for a route like "as".
 
-Route::get('/logout', array('as'=>'logout', 'uses' => 'AuthController@doLogout'));
+Route::get('/logout', array('as'=>'logout', 'uses' => 'AuthController@Logout'));
 
 //Pagina principal donde está el formulario de identificación
 Route::get('/', ['before' => 'guest', function(){
@@ -27,8 +27,10 @@ Route::get('/', ['before' => 'guest', function(){
 Route::group(
 	array('before' => 'auth'), function(){
 		//se agrega método search a la clase UsersController y para que compile correctamente se tiene que routear primero.
-		Route::get('users/search', 'UsersController@search'); 
+	
+		Route::get('users/search', 'UsersController@search');
 		Route::resource('users', 'UsersController');
+		
 		
 	}
 );

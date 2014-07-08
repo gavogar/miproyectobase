@@ -18,8 +18,13 @@ App::before(function($request)
 
 
 App::after(function($request, $response)
-{
-	//
+{    
+	if ( Auth::check()){
+      $ckname=Auth::getRecallerName(); //Get the name of the cookie, where remember me expiration time is stored
+      $ckval=Cookie::get($ckname); //Get the value of the cookie
+      return $response->withCookie(Cookie::make($ckname,$ckval,1440*365*5)); //change the expiration time
+  }
+
 });
 
 /*
@@ -47,17 +52,18 @@ Route::filter('auth', function()
 		}
 	}*/
 
-	if (Auth::guest()){
+	if (Auth::guest())
+	{
 		return Redirect::guest('/')->with('msg', 'Debes identificarte primero.');
 	}
 
 });
 
 
-Route::filter('auth.basic', function()
+/*Route::filter('auth.basic', function()
 {
 	return Auth::basic();
-});
+});*/
 
 /*
 |--------------------------------------------------------------------------
@@ -70,9 +76,15 @@ Route::filter('auth.basic', function()
 |
 */
 
+
+//VALIDA QUE EL USUARIO ESTÉ LOGUEADO, SI LO ESTÁ LO ENVÍA A /users.
+
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check())
+	{
+		return Redirect::to('/users');
+	}
 });
 
 /*

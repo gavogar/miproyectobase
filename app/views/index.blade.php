@@ -27,7 +27,12 @@
                     <!-- {{ Form::password('password', null, array('class' => 'form-control')) }} -->
                 </div>
 
+                <div class="form-group">
+                   {{ Form::checkbox('remember_token', 'true') }} Remeber Me
+                </div>
+
                 {{ Form::submit('Login', array('class' => 'btn btn-primary')) }}
+
 
         {{ Form::close() }}
 

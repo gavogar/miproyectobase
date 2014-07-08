@@ -13,8 +13,8 @@ return array(
 	|
 	| Supported: "file", "cookie", "database", "apc",
 	|            "memcached", "redis", "array"
-	|
-	*/
+	
+|	*/
 
 	'driver' => 'file',
 
@@ -29,7 +29,7 @@ return array(
 	|
 	*/
 
-	'lifetime' => 120,
+	'lifetime' => 1,
 
 	'expire_on_close' => false,
 
@@ -45,6 +45,7 @@ return array(
 	*/
 
 	'files' => storage_path().'/sessions',
+	
 
 	/*
 	|--------------------------------------------------------------------------
@@ -98,6 +99,7 @@ return array(
 
 	'cookie' => 'laravel_session',
 
+
 	/*
 	|--------------------------------------------------------------------------
 	| Session Cookie Path
@@ -136,5 +138,7 @@ return array(
 	*/
 
 	'secure' => false,
+
+	
 
 );
