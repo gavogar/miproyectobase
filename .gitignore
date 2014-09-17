@@ -1,5 +1,6 @@
 /app/storage
-/bootstrap/compiled.php
+/bootstrap/compiled.php.
+/vendor
 composer.phar
 composer.lock
 .env.*.php

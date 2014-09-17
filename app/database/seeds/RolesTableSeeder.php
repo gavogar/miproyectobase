@@ -7,8 +7,8 @@ class RolesTableSeeder extends Seeder {
 		//DB::table('roles')->delete();
 
 		// RolesTablesSeeder
-		Roles::create(array(
-				'rol' => 'Administrador'
-			));
+		$roles = ['rol' => 'Administrador'];
+
+		 DB::table('roles')->insert($roles);
 	}
 }
