@@ -62,16 +62,18 @@ class UsersController extends \BaseController {
 			$user->password = Hash::make(Input::get('password'));
 			$user->save();
 
-			Mail::send('users.mails.welcome', array('firstname'=>Input::get('firstname')),
+		/*	Mail::send('users.mails.welcome', array('firstname'=>Input::get('firstname')),
 				function($message)
 				{
         			$message->to(Input::get('email'),
         			Input::get('firstname').' '.Input::get('lastname'))->subject('Miglino bumbum empinado');
-        		});
+        		});*/
 
 			// redirect
-			//Session::flash('message', 'Successfully created user!');
-			return Redirect::to('users')->with('message', 'Successfully created user!');
+
+			
+			Session::flash('message', 'Successfully created user!');
+			return Redirect::to('users');
 		
 		}
 	}
