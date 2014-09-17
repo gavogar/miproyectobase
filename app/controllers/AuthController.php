@@ -16,7 +16,7 @@ class AuthController extends BaseController {
             {
                 // Aquí también pueden devolver una llamada a otro controlador o
                 // devolver una vista
-                return Redirect::to('/users')->with('message', $remember_token);
+                return Redirect::to('/users');
             }
                       
         // La autenticación ha fallado re-direccionamos a la página anterior con los datos enviados
